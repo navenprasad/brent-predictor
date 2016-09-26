@@ -21,4 +21,4 @@ class CurrencyAdmin(admin.ModelAdmin):
     list_display = ["timestamp", "prediction"]
 
 admin.site.register(Currency, CurrencyAdmin)
-admin.site.site_header = 'Brent'
+admin.site.site_header = 'Brent Predictor - Naven Prasad (FYP 2016)'
