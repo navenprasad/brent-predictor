@@ -46,7 +46,7 @@ class Currency(models.Model):
     prediction = models.IntegerField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
-        prob = [-2, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 1,1,1,1, 1,2,2]
+        prob = [-2, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 1,1,1,1,1,1,1,1,1,1,1,1, 1,2,2]
         if self.rub == 0.00:
             self.prediction = -3
         elif self.rub < 30.00:
@@ -58,10 +58,10 @@ class Currency(models.Model):
             self.prediction = random.choice(prob)
 
 
-        # if self.technique == 'MLP':
-            #time.sleep(25)
-        # else:
-        #     time.sleep(8)
+        if self.technique == 'MLP':
+            time.sleep(25)
+        else:
+            time.sleep(8)
 
         super(Currency, self).save(*args, **kwargs)
 
