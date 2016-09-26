@@ -48,7 +48,7 @@ class Currency(models.Model):
     prediction = models.IntegerField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
-        prob = [, -1, -1, -1, 0, 1, 1, 1,1,1,1,1,1,1,1,1,1,1,1, 1,1,1,1,1,2]
+        prob = [-1, -1, -1, 0, 1, 1, 1,1,1,1,1,1,1,1,1,1,1,1, 1,1,1,1,1,2]
         if self.rub == 0.00:
             self.prediction = -3
         elif self.rub < 30.00:
