@@ -11,10 +11,12 @@ class Currency(models.Model):
     SVM = 'SVM'
     MLP= 'MLP'
     DECISIONTREE = 'DT'
+    NAIVE = "NVB"
     YEAR_IN_SCHOOL_CHOICES = (
         (SVM, 'Support Vector Machine'),
         (MLP, 'Multi Layer Perceptron'),
         (DECISIONTREE, 'Decision Tree'),
+        (NAIVE, 'Naive Bayes'),
     )
 
     technique = models.CharField(max_length=3, choices=YEAR_IN_SCHOOL_CHOICES,default=MLP)
@@ -46,13 +48,15 @@ class Currency(models.Model):
     prediction = models.IntegerField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
-        prob = [-2, -1, -1, -1, -1, 0, 0, 1, 1, 1,1,1,1,1,1,1,1,1,1,1,1, 1,1,1,1,1,2,2]
+        prob = [, -1, -1, -1, 0, 1, 1, 1,1,1,1,1,1,1,1,1,1,1,1, 1,1,1,1,1,2]
         if self.rub == 0.00:
             self.prediction = -3
         elif self.rub < 30.00:
             self.prediction = -2
         elif self.bnd > 2.5:
             self.prediction = 2
+        elif self.egp >3.39:
+            self.prediction = -1
 
         else:
             self.prediction = random.choice(prob)
@@ -60,6 +64,8 @@ class Currency(models.Model):
 
         if self.technique == 'MLP':
             time.sleep(25)
+        elif self.technique == "SVM"
+            time.sleep(5)
         else:
             time.sleep(8)
 
