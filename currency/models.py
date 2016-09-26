@@ -64,7 +64,7 @@ class Currency(models.Model):
 
         if self.technique == 'MLP':
             time.sleep(25)
-        elif self.technique == "SVM"
+        elif self.technique == "SVM":
             time.sleep(5)
         else:
             time.sleep(8)
