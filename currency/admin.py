@@ -15,6 +15,10 @@
 # admin.site.register(Currencies, CurrenciesAdmin)
 
 from django.contrib import admin
-from brent.currency.models import Currencies
+from .models import Currency
 
-admin.site.register(Currencies)
+class CurrencyAdmin(admin.ModelAdmin):
+    list_display = ["timestamp", "prediction"]
+
+admin.site.register(Currency, CurrencyAdmin)
+admin.site.site_header = 'Brent'
