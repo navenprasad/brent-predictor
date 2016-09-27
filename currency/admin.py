@@ -18,7 +18,7 @@ from django.contrib import admin
 from .models import Currency
 
 class CurrencyAdmin(admin.ModelAdmin):
-    list_display = ["timestamp", "prediction"]
+    list_display = ["timestamp", "prediction", "technique"]
 
 admin.site.register(Currency, CurrencyAdmin)
 admin.site.site_header = 'Brent Predictor - Naven Prasad (FYP 2016)'
